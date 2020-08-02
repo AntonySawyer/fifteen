@@ -1,5 +1,5 @@
 import { Board } from '../interfaces';
-import { ArrowCodes } from '../constants';
+import { ArrowCodes, RESOLVED_BOARD } from '../constants';
 
 export const shuffle = (board: Board): Board => [...board.sort(() => Math.random() - 0.5)];
 
@@ -33,3 +33,5 @@ export function move(board: Board, direction: ArrowCodes) {
     }
     return board;
 }
+
+export const getGameOver = (board: Board): boolean => board.length === RESOLVED_BOARD.length && board.every((el, i)=> el === RESOLVED_BOARD[i]);
