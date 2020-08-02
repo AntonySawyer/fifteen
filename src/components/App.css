@@ -1,0 +1,11 @@
+.board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.square {
+    background-color: aliceblue;
+    color: blue;
+    font-size: 100px;
+    text-align: center;
+}
