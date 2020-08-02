@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './App.css';
-import { ELEMENTS } from '../constants/Main';
+import { ELEMENTS } from '../constants';
 import { shuffle, move } from '../helpers/board';
 
 function App() {

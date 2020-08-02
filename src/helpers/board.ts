@@ -1,22 +1,27 @@
 import { Board } from '../interfaces';
-import { ArrowCodes } from '../constants/Main';
+import { ArrowCodes } from '../constants';
 
 export const shuffle = (board: Board): Board => [...board.sort(() => Math.random() - 0.5)];
 
 function getTargetIndex(direction: ArrowCodes, activeIndex: number) {
     switch (direction) {
         case ArrowCodes.LEFT:
-            return activeIndex + 1;
+            if (activeIndex !== 3 && activeIndex !== 7 && activeIndex !== 11) {
+                return activeIndex + 1;
+            }
+            return activeIndex;
         case ArrowCodes.RIGHT:
-            return activeIndex - 1;
+            if (activeIndex !== 4 && activeIndex !== 8 && activeIndex !== 12) {
+                return activeIndex - 1;
+            }
+            return activeIndex;
         case ArrowCodes.DOWN:
             return activeIndex - 4;
         case ArrowCodes.UP:
             return activeIndex + 4;    
         default:
-            console.log('def');
             return activeIndex;
-    }   
+    }
 }
 
 export function move(board: Board, direction: ArrowCodes) {
